@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henry's Christening &amp; 1st Birthday</title>
+<meta name="description" content="Please join us in celebrating Henry Thompson Ong's Christening and 1st Birthday. September 19, 2026, Surigao City.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Henry's Christening & 1st Birthday">
+<meta property="og:description" content="You're invited! September 19, 2026, Surigao City. Tap for event details.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2f7fc9;
+    --blue-dark:#1d4f86;
+    --blue-mid:#4aa3e8;
+    --blue-light:#a9d4f5;
+    --stripe-a:#cfe4f7;
+    --stripe-b:#e9f3fb;
+    --yellow:#f7d24b;
+    --white:#ffffff;
+    --text:#1b3b5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--text);
+    background:var(--stripe-b);
+    -webkit-font-smoothing:antialiased;
+  }
+  .script{font-family:'Alex Brush','Brush Script MT',cursive;font-weight:400}
+
+  /* ---------- shared page shell ---------- */
+  .page{
+    position:relative;
+    min-height:100vh;
+    min-height:100svh;
+    overflow:hidden;
+    background:repeating-linear-gradient(90deg,var(--stripe-a) 0 34px,var(--stripe-b) 34px 68px);
+  }
+  .page-inner{
+    position:relative;
+    z-index:2;
+    max-width:560px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- decorations ---------- */
+  .palm{
+    position:absolute;
+    z-index:1;
+    left:-70px;
+    top:-10px;
+    width:300px;
+    height:auto;
+    pointer-events:none;
+    filter:drop-shadow(0 12px 14px rgba(20,60,100,.18));
+  }
+  @media (min-width:700px){
+    .palm{left:calc(50% - 400px);width:360px}
+    #details .palm{left:calc(50% - 440px) !important;width:300px !important}
+  }
+
+  .lights{
+    position:absolute;
+    z-index:3;
+    left:0;right:0;top:0;
+    width:100%;
+    height:auto;
+    pointer-events:none;
+  }
+
+  .balloon{
+    position:absolute;
+    z-index:1;
+    border-radius:50% 50% 50% 50% / 46% 46% 54% 54%;
+    box-shadow:inset -12px -14px 22px rgba(0,0,0,.14), inset 8px 10px 18px rgba(255,255,255,.55), 0 14px 22px rgba(20,60,100,.16);
+  }
+  .balloon::before{ /* highlight */
+    content:"";position:absolute;left:22%;top:12%;width:22%;height:32%;
+    border-radius:50%;background:rgba(255,255,255,.55);filter:blur(3px);
+  }
+  .balloon::after{ /* knot */
+    content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+    border-left:6px solid transparent;border-right:6px solid transparent;
+    border-top:9px solid;border-top-color:inherit;
+    width:0;height:0;
+  }
+  .b-blue{background:radial-gradient(circle at 35% 30%,#8ecbf5,#3f95dd 60%,#2a72b8);border-top-color:#2a72b8}
+  .b-light{background:radial-gradient(circle at 35% 30%,#e6f3fd,#a9d4f5 60%,#7fb8e6);border-top-color:#7fb8e6}
+  .b-white{background:radial-gradient(circle at 35% 30%,#ffffff,#f1f5f9 60%,#d9e2ea);border-top-color:#d9e2ea}
+  .b-yellow{background:radial-gradient(circle at 35% 30%,#fff2b3,#f7d24b 60%,#e2b52a);border-top-color:#e2b52a}
+  .string{
+    position:absolute;z-index:1;width:2px;background:rgba(70,120,170,.45);
+    transform-origin:top center;pointer-events:none;
+  }
+
+  /* ---------- cover ---------- */
+  #cover{display:flex;align-items:center;justify-content:center;padding:120px 0 40px}
+  .arch{
+    position:relative;
+    background:linear-gradient(180deg,#ffffff 0%,#f6fafe 100%);
+    border-radius:260px 260px 28px 28px;
+    padding:70px 28px 34px;
+    text-align:center;
+    box-shadow:0 30px 60px rgba(20,60,100,.18), 0 2px 0 rgba(255,255,255,.9) inset;
+    width:100%;
+  }
+  .arch .lead{
+    color:var(--blue);
+    font-size:clamp(18px,4.6vw,24px);
+    font-weight:400;
+    line-height:1.25;
+  }
+  .arch .name{
+    color:var(--blue);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:clamp(34px,9vw,52px);
+    line-height:1.02;
+    letter-spacing:.5px;
+    margin:14px 0 4px;
+  }
+  .arch .event{
+    color:var(--blue);
+    font-size:clamp(46px,12vw,72px);
+    line-height:.95;
+    margin-top:6px;
+  }
+  .arch .amp{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-weight:500;
+    font-size:clamp(13px,3.4vw,16px);
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--blue-dark);
+    margin:16px 0 8px;
+  }
+  .arch .event2{
+    color:var(--blue);
+    font-size:clamp(40px,10.5vw,64px);
+    line-height:.95;
+  }
+  .photo{
+    width:min(62vw,240px);
+    height:min(62vw,240px);
+    margin:28px auto 0;
+    border-radius:50%;
+    border:8px solid #fff;
+    box-shadow:0 14px 30px rgba(20,60,100,.22);
+    background:linear-gradient(135deg,#dbeefb,#bcdcf4);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    color:var(--blue-dark);
+    font-size:13px;font-weight:500;text-align:center;padding:16px;
+  }
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .date-line{
+    margin-top:26px;
+    color:var(--blue-dark);
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:clamp(12px,3.2vw,14px);
+  }
+  .cta{
+    display:inline-block;
+    margin-top:22px;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:14px 26px;
+    border-radius:999px;
+    box-shadow:0 10px 22px rgba(47,127,201,.35);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(47,127,201,.4)}
+  .cta svg{vertical-align:-3px;margin-left:6px}
+
+  /* ---------- details ---------- */
+  #details{padding:90px 0 70px}
+  #details .page-inner{padding-top:10px}
+  .h-details{
+    text-align:center;
+    color:var(--blue);
+    font-size:clamp(56px,14vw,82px);
+    line-height:1;
+    margin-bottom:34px;
+    text-shadow:0 2px 0 #fff;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px 22px;
+  }
+  .item{display:flex;gap:14px;align-items:flex-start}
+  .item.full{grid-column:1 / -1}
+  .item svg{flex:0 0 auto;width:52px;height:52px;color:var(--blue-dark)}
+  .item h3{
+    font-size:clamp(15px,4vw,19px);
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--blue-dark);
+    margin-bottom:3px;
+  }
+  .item p{
+    font-size:clamp(14px,3.9vw,18px);
+    line-height:1.3;
+    color:var(--blue);
+    font-weight:400;
+  }
+  .item p small{display:block;font-size:.8em;color:var(--blue-dark);opacity:.8;margin-top:2px}
+  .item a{color:inherit;text-decoration:underline;text-decoration-color:rgba(47,127,201,.35);text-underline-offset:3px}
+  .tba{
+    display:inline-block;background:var(--yellow);color:#4b3a00;
+    font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;vertical-align:middle;
+  }
+  @media (max-width:420px){
+    .grid{grid-template-columns:1fr;gap:26px}
+  }
+
+  .swatches{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+    margin-top:36px;
+  }
+  .swatches h4{
+    color:var(--blue);font-weight:400;font-size:clamp(15px,4.2vw,19px);margin-bottom:10px;
+  }
+  .dots{display:flex;gap:10px;flex-wrap:wrap}
+  .dot{
+    width:52px;height:52px;border-radius:50%;
+    box-shadow:inset -6px -8px 12px rgba(0,0,0,.12), inset 5px 6px 10px rgba(255,255,255,.5), 0 6px 14px rgba(20,60,100,.14);
+    border:2px solid #fff;
+  }
+  .note{
+    margin-top:38px;
+    color:var(--blue);
+    font-size:clamp(15px,4.2vw,19px);
+    line-height:1.4;
+    text-align:center;
+  }
+  .hosts{
+    margin-top:44px;
+    text-align:center;
+  }
+  .hosts .with{color:var(--blue);font-size:clamp(34px,9vw,46px);line-height:1}
+  .hosts .names{
+    margin-top:6px;
+    color:var(--blue-dark);
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    font-size:clamp(13px,3.6vw,16px);
+  }
+  .bubbles{position:absolute;right:14px;top:60px;width:56px;height:auto;z-index:1;opacity:.9}
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page" id="cover">
+
+  <!-- string lights -->
+  <svg class="lights" viewBox="0 0 600 150" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#fff6c4" stop-opacity="1"/>
+        <stop offset=".5" stop-color="#ffe27a" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#ffe27a" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="bulb" cx="40%" cy="35%" r="65%">
+        <stop offset="0" stop-color="#fffbe6"/>
+        <stop offset=".6" stop-color="#ffe27a"/>
+        <stop offset="1" stop-color="#e6b93a"/>
+      </radialGradient>
+    </defs>
+    <path d="M-10 20 C 120 105, 260 105, 300 60 S 480 -20, 610 40" fill="none" stroke="#1e1e1e" stroke-width="2.4"/>
+    <g id="bulbs" fill="none">
+      <!-- each bulb: x,y computed roughly along the wire -->
+      <g transform="translate(70,58)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+      <g transform="translate(150,84)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+      <g transform="translate(240,86)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+      <g transform="translate(330,52)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+      <g transform="translate(420,32)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+      <g transform="translate(520,30)"><circle r="26" fill="url(#glow)"/><rect x="-5" y="-16" width="10" height="12" rx="2" fill="#222"/><circle cy="6" r="9" fill="url(#bulb)"/></g>
+    </g>
+  </svg>
+
+  <!-- palm tree -->
+  <svg class="palm" viewBox="0 0 300 420" aria-hidden="true">
+    <defs>
+      <linearGradient id="trunk" x1="0" x2="1">
+        <stop offset="0" stop-color="#8a5a2b"/><stop offset=".5" stop-color="#c58a4a"/><stop offset="1" stop-color="#7a4a20"/>
+      </linearGradient>
+      <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2f9e5a"/><stop offset="1" stop-color="#176b3a"/>
+      </linearGradient>
+    </defs>
+    <!-- trunk -->
+    <path d="M118 420 C 100 330, 90 240, 125 130 L 142 132 C 116 240, 128 330, 150 420 Z" fill="url(#trunk)"/>
+    <g stroke="#5f3a17" stroke-width="2" opacity=".6" fill="none">
+      <path d="M113 380 q 18 -6 34 2"/><path d="M110 350 q 18 -6 34 2"/><path d="M108 320 q 18 -6 34 2"/>
+      <path d="M108 290 q 18 -6 34 2"/><path d="M110 260 q 18 -6 34 2"/><path d="M114 230 q 18 -6 34 2"/>
+      <path d="M118 200 q 18 -6 34 2"/><path d="M122 170 q 18 -6 34 2"/><path d="M126 145 q 16 -6 30 2"/>
+    </g>
+    <!-- fronds -->
+    <g fill="url(#leaf)">
+      <path d="M132 128 C 60 110, 10 130, -10 175 C 30 150, 80 145, 132 140 Z"/>
+      <path d="M132 128 C 70 80, 20 70, -20 95 C 30 90, 85 105, 132 138 Z"/>
+      <path d="M134 126 C 110 60, 80 30, 40 20 C 75 45, 105 85, 134 134 Z"/>
+      <path d="M136 124 C 150 50, 170 20, 210 10 C 175 50, 158 90, 140 130 Z"/>
+      <path d="M138 128 C 200 80, 250 70, 300 90 C 245 90, 195 110, 140 138 Z"/>
+      <path d="M138 132 C 200 130, 250 150, 285 195 C 240 165, 190 155, 140 142 Z"/>
+      <path d="M136 134 C 170 170, 175 210, 165 255 C 160 210, 150 175, 134 140 Z"/>
+      <path d="M134 134 C 100 170, 90 210, 100 255 C 106 210, 118 175, 136 140 Z"/>
+    </g>
+    <!-- frond mid-ribs -->
+    <g stroke="#0f4f2a" stroke-width="1.5" fill="none" opacity=".55">
+      <path d="M132 133 C 80 130, 30 145, -8 172"/><path d="M132 132 C 80 95, 30 85, -18 96"/>
+      <path d="M134 130 C 108 78, 80 40, 42 22"/><path d="M137 128 C 160 70, 180 35, 208 12"/>
+      <path d="M139 132 C 200 100, 250 90, 298 91"/><path d="M139 136 C 200 145, 245 165, 283 193"/>
+      <path d="M136 137 C 165 180, 170 215, 165 253"/><path d="M134 137 C 105 180, 96 215, 101 253"/>
+    </g>
+    <!-- coconuts -->
+    <circle cx="128" cy="140" r="8" fill="#7a4a20"/><circle cx="142" cy="146" r="8" fill="#8f5a2a"/><circle cx="135" cy="152" r="7" fill="#6b3f18"/>
+  </svg>
+
+  <!-- balloons right -->
+  <div class="string" style="right:60px;top:140px;height:110px;transform:rotate(-8deg)"></div>
+  <div class="balloon b-yellow" style="right:70px;top:38px;width:70px;height:86px"></div>
+  <div class="balloon b-white"  style="right:22px;top:88px;width:58px;height:72px"></div>
+  <div class="balloon b-light"  style="right:118px;top:98px;width:60px;height:74px"></div>
+  <div class="balloon b-blue"   style="right:14px;top:158px;width:84px;height:104px"></div>
+  <div class="balloon b-white"  style="right:96px;top:176px;width:44px;height:54px"></div>
+  <div class="balloon b-blue"   style="right:60px;top:236px;width:48px;height:60px"></div>
+
+  <!-- balloon left, low -->
+  <div class="string" style="left:64px;bottom:60px;height:120px;transform:rotate(6deg)"></div>
+  <div class="balloon b-blue"  style="left:26px;bottom:150px;width:84px;height:104px"></div>
+  <div class="balloon b-light" style="left:0;bottom:110px;width:46px;height:58px"></div>
+
+  <div class="page-inner">
+    <div class="arch">
+      <p class="lead">Please join us<br>in celebrating our</p>
+      <h1 class="name">Henry<br>Thompson Ong's</h1>
+      <p class="event script">Christening</p>
+      <span class="amp">&amp;</span>
+      <p class="event2 script">1st Birthday</p>
+
+      <!-- PHOTO: replace the inner text with <img src="henry.jpg" alt="Henry"> once the photo is in -->
+      <div class="photo">
+        Henry's photo<br>coming soon
+      </div>
+
+      <p class="date-line">September 19, 2026 &middot; Surigao City</p>
+      <a class="cta" href="#details">Click for event details
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DETAILS ============================ -->
+<section class="page" id="details">
+
+  <!-- palm tree (top-left again) -->
+  <svg class="palm" viewBox="0 0 300 420" aria-hidden="true" style="top:-30px;width:220px;left:-110px">
+    <path d="M118 420 C 100 330, 90 240, 125 130 L 142 132 C 116 240, 128 330, 150 420 Z" fill="url(#trunk)"/>
+    <g fill="url(#leaf)">
+      <path d="M132 128 C 60 110, 10 130, -10 175 C 30 150, 80 145, 132 140 Z"/>
+      <path d="M132 128 C 70 80, 20 70, -20 95 C 30 90, 85 105, 132 138 Z"/>
+      <path d="M134 126 C 110 60, 80 30, 40 20 C 75 45, 105 85, 134 134 Z"/>
+      <path d="M136 124 C 150 50, 170 20, 210 10 C 175 50, 158 90, 140 130 Z"/>
+      <path d="M138 128 C 200 80, 250 70, 300 90 C 245 90, 195 110, 140 138 Z"/>
+      <path d="M138 132 C 200 130, 250 150, 285 195 C 240 165, 190 155, 140 142 Z"/>
+      <path d="M136 134 C 170 170, 175 210, 165 255 C 160 210, 150 175, 134 140 Z"/>
+      <path d="M134 134 C 100 170, 90 210, 100 255 C 106 210, 118 175, 136 140 Z"/>
+    </g>
+    <g stroke="#0f4f2a" stroke-width="1.5" fill="none" opacity=".55">
+      <path d="M132 133 C 80 130, 30 145, -8 172"/><path d="M132 132 C 80 95, 30 85, -18 96"/>
+      <path d="M134 130 C 108 78, 80 40, 42 22"/><path d="M137 128 C 160 70, 180 35, 208 12"/>
+      <path d="M139 132 C 200 100, 250 90, 298 91"/><path d="M139 136 C 200 145, 245 165, 283 193"/>
+      <path d="M136 137 C 165 180, 170 215, 165 253"/><path d="M134 137 C 105 180, 96 215, 101 253"/>
+    </g>
+    <circle cx="128" cy="140" r="8" fill="#7a4a20"/><circle cx="142" cy="146" r="8" fill="#8f5a2a"/><circle cx="135" cy="152" r="7" fill="#6b3f18"/>
+  </svg>
+
+  <!-- bubbles top-right -->
+  <svg class="bubbles" viewBox="0 0 60 60" fill="none" stroke="#4aa3e8" stroke-width="2" aria-hidden="true">
+    <circle cx="16" cy="18" r="9"/><circle cx="36" cy="12" r="6"/><circle cx="40" cy="36" r="13"/>
+    <path d="M10 14 a7 7 0 0 1 6 -3" stroke="#fff" stroke-width="2.5"/>
+    <path d="M31 30 a10 10 0 0 1 8 -4" stroke="#fff" stroke-width="2.5"/>
+  </svg>
+
+  <div class="page-inner">
+    <h2 class="h-details script">Event Details</h2>
+
+    <div class="grid">
+      <!-- DATE -->
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="14" width="48" height="42" rx="4"/><path d="M8 26h48M20 8v10M44 8v10"/>
+          <g fill="currentColor" stroke="none"><rect x="17" y="32" width="6" height="6"/><rect x="29" y="32" width="6" height="6"/><rect x="41" y="32" width="6" height="6"/><rect x="17" y="43" width="6" height="6"/><rect x="29" y="43" width="6" height="6"/></g>
+        </svg>
+        <div><h3>Date</h3><p>September 19, 2026<br>Saturday</p></div>
+      </div>
+
+      <!-- TIME (placeholder until schedule is final) -->
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="24"/><path d="M32 16v16l10 6"/>
+        </svg>
+        <div><h3>Time</h3><p><span class="tba">To be announced</span></p></div>
+      </div>
+
+      <!-- CHURCH -->
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 4v10M27 9h10"/><path d="M20 30l12-12 12 12v26H20z"/><path d="M20 38H8v18h12M44 38h12v18H44"/><path d="M28 56v-10a4 4 0 0 1 8 0v10"/>
+        </svg>
+        <div><h3>Ceremony</h3><p>Cathedral Church<br>San Nicolas Street,<br>Surigao City</p></div>
+      </div>
+
+      <!-- RECEPTION -->
+      <div class="item">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 44h44"/><path d="M14 44a18 18 0 0 1 36 0"/><path d="M32 22v-6M29 16h6"/><path d="M8 50h48"/>
+          <path d="M48 20l3-3M16 20l-3-3M32 10V6" opacity=".6"/>
+        </svg>
+        <div><h3>Reception</h3><p>Jollibee Highway Branch<br><small>Outside Villa Corito, Surigao City</small></p></div>
+      </div>
+
+      <!-- DRESS CODE (placeholder) -->
+      <div class="item full">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 22c0-4 3-6 6-6s6 2 6 6-6 4-6 8"/><path d="M32 30L6 48h52L32 30z"/>
+        </svg>
+        <div><h3>Dress Code</h3><p><span class="tba">To be announced</span></p></div>
+      </div>
+    </div>
+
+    <!-- COLOUR MOTIF: swatches, update once dress code is confirmed -->
+    <div class="swatches">
+      <div>
+        <h4>Godparents:</h4>
+        <div class="dots"><div class="dot" style="background:#fff"></div></div>
+      </div>
+      <div>
+        <h4>Guests:</h4>
+        <div class="dots">
+          <div class="dot b-blue"></div>
+          <div class="dot b-light"></div>
+          <div class="dot b-yellow"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING NOTE: replace once Byron sends one -->
+    <p class="note">We can't wait to celebrate Henry's special day with you.</p>
+
+    <div class="hosts">
+      <p class="with script">With love,</p>
+      <p class="names">Byron Ong &amp; Hanna Albino</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
