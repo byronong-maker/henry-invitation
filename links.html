@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pit pass links</title>
+<style>
+  body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#fff8ec;color:#1e1e1e;margin:0;padding:24px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 6px}
+  p{margin:0 0 14px;color:#555;font-size:14px;line-height:1.5}
+  textarea{width:100%;min-height:160px;padding:12px;border:2px solid #161616;border-radius:10px;font:14px/1.5 ui-monospace,Consolas,monospace;box-sizing:border-box}
+  button{margin-top:10px;background:#e31b23;color:#fff;border:0;padding:12px 18px;border-radius:999px;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:13px;cursor:pointer}
+  button.alt{background:#1f5fbf}
+  table{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px;background:#fff;border:2px solid #161616;border-radius:10px;overflow:hidden}
+  th,td{padding:10px;border-bottom:1px solid #eee;text-align:left;vertical-align:top}
+  th{background:#161616;color:#fff;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+  td a{color:#1f5fbf;word-break:break-all}
+  td button{margin:0;padding:6px 10px;font-size:11px}
+  .hint{font-size:12px;color:#777}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Pit pass links for Henry's invitation</h1>
+  <p>One guest per line. Add <b>, ninong</b> or <b>, ninang</b> after a name to give them the godparent version.<br>
+  Example:<br><span class="hint">Lola Ning<br>Mark Santos, ninong<br>Ana Reyes, ninang<br>Tito Jun &amp; Tita Beth</span></p>
+  <textarea id="in" placeholder="Lola Ning
+Mark Santos, ninong
+Ana Reyes, ninang"></textarea>
+  <div>
+    <button id="go">Make links</button>
+    <button id="copyAll" class="alt">Copy all</button>
+  </div>
+  <table id="out" hidden>
+    <thead><tr><th>Guest</th><th>Link</th><th></th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+<script>
+  var base = location.href.replace(/links\.html.*$/, '');
+  var tbody = document.querySelector('#out tbody');
+  var rows = [];
+  function build(){
+    tbody.innerHTML = ''; rows = [];
+    document.getElementById('in').value.split('\n').map(function(l){return l.trim()}).filter(Boolean).forEach(function(line){
+      var parts = line.split(','), name = parts[0].trim(), role = (parts[1]||'').trim().toLowerCase();
+      var url = base + '?to=' + encodeURIComponent(name).replace(/%20/g,'+') + (role==='ninong'||role==='ninang' ? '&role='+role : '');
+      var label = (role==='ninong'?'Ninong ':role==='ninang'?'Ninang ':'') + name;
+      rows.push(label + ': ' + url);
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>'+label.replace(/</g,'&lt;')+'</td><td><a href="'+url+'" target="_blank">'+url+'</a></td><td><button>Copy</button></td>';
+      tr.querySelector('button').onclick = function(){ navigator.clipboard.writeText(url); this.textContent='Copied'; };
+      tbody.appendChild(tr);
+    });
+    document.getElementById('out').hidden = rows.length === 0;
+  }
+  document.getElementById('go').onclick = build;
+  document.getElementById('copyAll').onclick = function(){ build(); navigator.clipboard.writeText(rows.join('\n')); this.textContent='Copied all'; };
+</script>
+</body>
+</html>
