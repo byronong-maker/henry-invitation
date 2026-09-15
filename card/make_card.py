@@ -46,14 +46,14 @@ def center(t, y, f, fill, shadow=None, tracking=0):
     d.text((x, y), t, font=f, fill=fill)
 
 # ---- yellow pill tag
-tag = "RACE DAY  ·  SATURDAY, SEPTEMBER 19, 2026"
+tag = "SAVE THE DATE  ·  SATURDAY, SEPTEMBER 19, 2026"
 f = nunito(22, 900); tw = text_w(tag, f) + 8 * 2
 px0, py0 = W / 2 - tw / 2 - 22, 58
 d.rounded_rectangle((px0, py0, px0 + tw + 44, py0 + 46), radius=23, fill=YELLOW)
 d.text((px0 + 22, py0 + 10), tag, font=f, fill=BLACK)
 
 # ---- kicker + name
-center("Start your engines! Our little racer", 128, nunito(30, 700), WHITE)
+center("Please join us in celebrating our little racer", 128, nunito(28, 700), WHITE)
 center("HENRY", 158, racing(190), WHITE, shadow=(RED_DARK, 9))
 center("THOMPSON ONG", 352, racing(44), YELLOW, tracking=6)
 
@@ -106,7 +106,7 @@ if VARIANT == 'godparents':
     l2 = "stand as Ninong or Ninang to Henry."
 else:
     l1 = "Byron & Hanna would love for you to join them"
-    l2 = "as Henry crosses his very first finish line."
+    l2 = "as Henry is christened and turns one."
 center(l1, 1252, nunito(24, 700), WHITE)
 center(l2, 1284, nunito(24, 700), WHITE)
 
