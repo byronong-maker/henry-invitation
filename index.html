@@ -9,6 +9,7 @@
 <meta property="og:title" content="Henry's First Lap: Christening & 1st Birthday">
 <meta property="og:description" content="You're on the guest list! September 19, 2026, Surigao City. Tap to open your pit pass.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://byronong-maker.github.io/henry-invitation/img/henry-hero.jpg">
 <meta name="theme-color" content="#e31b23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,7 +164,7 @@
     background:linear-gradient(135deg,#fff3d1,#ffd98a);
     border:6px solid var(--yellow);
     display:flex;align-items:center;justify-content:center;text-align:center;
-    color:var(--black);font-weight:700;font-size:13px;padding:14px;overflow:hidden;
+    color:var(--black);font-weight:700;font-size:13px;padding:0;overflow:hidden;
     position:relative;z-index:1;
   }
   .tyre .photo img{width:100%;height:100%;object-fit:cover;display:block}
@@ -254,6 +255,22 @@
     height:34px;margin:18px -22px -22px;
     background:repeating-linear-gradient(90deg,var(--black) 0 2px,transparent 2px 5px,var(--black) 5px 6px,transparent 6px 10px,var(--black) 10px 13px,transparent 13px 16px);
     opacity:.85;
+  }
+
+  /* meet the driver */
+  #driver{background:var(--cream)}
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .shot{position:relative;border-radius:14px;overflow:hidden;border:3px solid var(--black);background:#fff;box-shadow:6px 6px 0 var(--yellow)}
+  .shot img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+  .shot figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:8px 8px 9px;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75));
+    color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;line-height:1.25;
+  }
+  @media (max-width:420px){
+    .strip{grid-template-columns:1fr 1fr}
+    .strip .shot:first-child{grid-column:1/-1}
+    .strip .shot:first-child img{aspect-ratio:4/3;object-position:50% 30%}
   }
 
   /* countdown */
@@ -383,7 +400,7 @@
 
     <!-- PHOTO: replace the placeholder text with <img src="henry.jpg" alt="Henry"> -->
     <div class="tyre">
-      <div class="photo">Henry's photo<br>coming soon</div>
+      <div class="photo"><img src="img/henry-hero.jpg" alt="Henry"></div>
     </div>
   </div>
 
@@ -437,6 +454,19 @@
         </div>
         <div class="bar"></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEET THE DRIVER ================= -->
+<section class="block" id="driver">
+  <div class="wrap">
+    <h2 class="h2 race">Meet the <span>driver</span></h2>
+    <p class="lead">One year old, already on the podium.</p>
+    <div class="strip">
+      <figure class="shot"><img src="img/henry-one.jpg" alt="Henry holding a gold number 1 balloon"><figcaption>Race no. 1</figcaption></figure>
+      <figure class="shot"><img src="img/henry-sister.jpg" alt="Henry with his big sister"><figcaption>With his pit crew chief, big sister</figcaption></figure>
+      <figure class="shot"><img src="img/henry-smile.jpg" alt="Henry smiling"><figcaption>Pre-race warm-up</figcaption></figure>
     </div>
   </div>
 </section>
