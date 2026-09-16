@@ -104,10 +104,12 @@ def row(label, lines, y):
     return yy + 12
 y = row("CEREMONY", ["11:00 AM  ·  Cathedral Church", "San Nicolas Street, Surigao City"], y)
 y = row("RECEPTION", ["12:00 NN  ·  Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
-if VARIANT in ('ninong', 'ninang', 'godparents'):
-    y = row("DRESS CODE", ["White", "Guests in red, yellow or blue"], y)
-else:
-    y = row("DRESS CODE", ["Red, yellow or blue", "Ninongs and Ninangs in white"], y)
+# dress code: both lines bold, same on every card
+fl = nunito(17, 900); fb = nunito(24, 800)
+d.text((cx0 + 34, y + 6), "DRESS CODE", font=fl, fill=RED)
+d.text((cx0 + 210, y), "Ninongs and Ninangs: White", font=fb, fill=BLACK)
+d.text((cx0 + 210, y + 32), "Guests: Red, Yellow and Blue", font=fb, fill=BLACK)
+y += 76
 
 # ---- closing line (variant)
 if NAME:

@@ -363,6 +363,17 @@
   .gift p .tba{font-size:10px;padding:3px 8px}
   @media (max-width:420px){.gifts{grid-template-columns:1fr}}
   .gift-note{margin-top:18px;text-align:center;font-size:14px;color:#666;font-weight:600;line-height:1.5}
+  .gcash{
+    margin-top:28px;background:#fff;border:3px solid var(--black);border-radius:18px;
+    box-shadow:6px 6px 0 var(--red);padding:18px;display:flex;gap:18px;align-items:center;
+  }
+  .gcash img{width:170px;flex:0 0 auto;border-radius:12px;border:2px solid #e5e7eb}
+  .gcash h3{font-size:16px;font-weight:900;color:var(--black);line-height:1.25}
+  .gcash p{margin-top:8px;font-size:14px;line-height:1.5;color:#555;font-weight:600}
+  @media (max-width:480px){
+    .gcash{flex-direction:column;text-align:center}
+    .gcash img{width:min(70vw,240px)}
+  }
 
   /* crew */
   #crew{background:var(--cream-2)}
@@ -595,6 +606,10 @@
         <div><h4>Diapers &amp; wipes</h4><p>Always useful. <b>EQ Pants, Medium</b>.</p></div>
       </div>
       <div class="gift">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3l2 3v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3z"/><path d="M7 13h10"/></svg></div>
+        <div><h4>Milk</h4><p><b>Nido Junior 1 to 3 years old</b>. His everyday milk, always appreciated.</p></div>
+      </div>
+      <div class="gift">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg></div>
         <div><h4>Books &amp; toys</h4><p>Board books, stacking cups, push toys, anything for a curious one-year-old. Little cars are a favourite.</p></div>
       </div>
@@ -604,6 +619,14 @@
       </div>
     </div>
     <p class="gift-note">No wrapping needed, and no gift is expected. We are just happy you are coming.</p>
+
+    <div class="gcash">
+      <img src="img/gcash.jpg" alt="GCash QR code for Byron O.">
+      <div>
+        <h3>Can't make it, or prefer to send something instead?</h3>
+        <p>A small gift for Henry through GCash is welcome, though never expected. Scan the code with your GCash app, or send to <b>+63 945 685 ****</b> (Byron O.). Whatever comes from the heart is more than enough.</p>
+      </div>
+    </div>
   </div>
 </section>
 
