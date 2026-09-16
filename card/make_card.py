@@ -1,9 +1,15 @@
-"""Static invitation card for Henry's First Lap. Usage: python make_card.py [godparents|guests] [out.png]"""
+"""Static invitation card for Henry's First Lap.
+Usage: python make_card.py [godparents|guests] [out.png]
+       python make_card.py ninong|ninang "Full Name" out.png   (personalised)"""
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps
 import math, sys
 
 VARIANT = sys.argv[1] if len(sys.argv) > 1 else 'godparents'
-OUT = sys.argv[2] if len(sys.argv) > 2 else f'henry-invite-{VARIANT}.png'
+NAME = None
+if VARIANT in ('ninong', 'ninang'):
+    NAME = sys.argv[2]; OUT = sys.argv[3]
+else:
+    OUT = sys.argv[2] if len(sys.argv) > 2 else f'henry-invite-{VARIANT}.png'
 
 W, H = 1080, 1350
 RED, RED_DARK, YELLOW, BLACK, CREAM, WHITE, BLUE = (227, 27, 35), (179, 18, 26), (255, 194, 14), (22, 22, 22), (255, 248, 236), (255, 255, 255), (31, 95, 191)
@@ -58,7 +64,7 @@ center("HENRY", 158, racing(190), WHITE, shadow=(RED_DARK, 9))
 center("THOMPSON ONG", 352, racing(44), YELLOW, tracking=6)
 
 # ---- tyre with photo
-tcx, tcy, tr = W // 2, 640, 210
+tcx, tcy, tr = W // 2, 626, 206
 tyre = Image.new('RGBA', (tr * 2, tr * 2), (0, 0, 0, 0)); td = ImageDraw.Draw(tyre)
 td.ellipse((0, 0, tr * 2, tr * 2), fill=BLACK)
 for i in range(0, 360, 12):  # tread
@@ -81,10 +87,10 @@ d.ellipse((rx - rr, ry - rr, rx + rr, ry + rr), fill=WHITE, outline=BLACK, width
 f = racing(52); d.text((rx - text_w("1", f) / 2, ry - 34), "1", font=f, fill=BLACK)
 
 # ---- event line
-center("Christening  &  1st Birthday", 868, racing(58), WHITE, shadow=(RED_DARK, 5))
+center("Christening  &  1st Birthday", 846, racing(58), WHITE, shadow=(RED_DARK, 5))
 
 # ---- details card
-cx0, cy0, cx1, cy1 = 70, 950, W - 70, 1226
+cx0, cy0, cx1, cy1 = 70, 926, W - 70, 1186
 d.rounded_rectangle((cx0 + 10, cy0 + 10, cx1 + 10, cy1 + 10), radius=22, fill=YELLOW)
 d.rounded_rectangle((cx0, cy0, cx1, cy1), radius=22, fill=CREAM, outline=BLACK, width=5)
 y = cy0 + 22
@@ -96,19 +102,26 @@ def row(label, lines, y):
     for ln in lines[1:]:
         d.text((cx0 + 210, yy), ln, font=f3, fill=(90, 90, 90)); yy += 27
     return yy + 12
-y = row("CEREMONY", ["Cathedral Church", "San Nicolas Street, Surigao City", "Time: to be announced"], y)
-y = row("RECEPTION", ["Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
+y = row("CEREMONY", ["11:00 AM  ·  Cathedral Church", "San Nicolas Street, Surigao City"], y)
+y = row("RECEPTION", ["12:00 NN  ·  Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
 y = row("DRESS CODE", ["To be announced"], y)
 
 # ---- closing line (variant)
-if VARIANT == 'godparents':
+if NAME:
+    center(f"Dear {NAME},", 1206, nunito(30, 900), YELLOW)
     l1 = "Byron & Hanna would be honoured to have you"
-    l2 = "stand as Ninong or Ninang to Henry."
+    l2 = f"stand as {'Ninong' if VARIANT == 'ninong' else 'Ninang'} to Henry."
+    center(l1, 1250, nunito(24, 700), WHITE)
+    center(l2, 1282, nunito(24, 700), WHITE)
 else:
-    l1 = "Byron & Hanna would love for you to join them"
-    l2 = "as Henry is christened and turns one."
-center(l1, 1252, nunito(24, 700), WHITE)
-center(l2, 1284, nunito(24, 700), WHITE)
+    if VARIANT == 'godparents':
+        l1 = "Byron & Hanna would be honoured to have you"
+        l2 = "stand as Ninong or Ninang to Henry."
+    else:
+        l1 = "Byron & Hanna would love for you to join them"
+        l2 = "as Henry is christened and turns one."
+    center(l1, 1228, nunito(24, 700), WHITE)
+    center(l2, 1262, nunito(24, 700), WHITE)
 
 img.save(OUT, quality=95)
 print('saved', OUT)
