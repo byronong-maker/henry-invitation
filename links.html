@@ -24,23 +24,23 @@
 <body>
 <div class="wrap">
   <h1>Invitation links for Henry's big day</h1>
-  <p>One guest per line. Add <b>, ninong</b> or <b>, ninang</b> after a name to give them the godparent version.<br>
-  Example:<br><span class="hint">Lola Ning<br>Mark Santos, ninong<br>Ana Reyes, ninang<br>Tito Jun &amp; Tita Beth</span></p>
-  <textarea id="in">Atty. Ronel A. Ubod, ninong
-Atty. Tristan Louise D. Ando, ninong
-Felibert C. Dumale, ninong
-Ronin Alipao, ninong
-Norlam Dominique Concepcion, ninong
-Cedric Josh Kaimo, ninong
-Neil Jhun Orozco, ninong
-Carl Bonilla, ninong
-Charmil Mijares, ninang
-Nej Minglana, ninang
-Regine Salvacion, ninang
-Dianne Galanida, ninang
-Catherine Mangyan, ninang
-Margie Revil, ninang
-Claire Concepcion, ninang</textarea>
+  <p>One guest per line.<br>
+  Example:<br><span class="hint">Lola Ning<br>Mark Santos<br>Tito Jun &amp; Tita Beth</span></p>
+  <textarea id="in">Atty. Ronel A. Ubod
+Atty. Tristan Louise D. Ando
+Felibert C. Dumale
+Ronin Alipao
+Norlam Dominique Concepcion
+Cedric Josh Kaimo
+Neil Jhun Orozco
+Carl Bonilla
+Charmil Mijares
+Nej Minglana
+Regine Salvacion
+Dianne Galanida
+Catherine Mangyan
+Margie Revil
+Claire Concepcion</textarea>
   <div>
     <button id="go">Make links</button>
     <button id="copyAll" class="alt">Copy all</button>
@@ -57,7 +57,7 @@ Claire Concepcion, ninang</textarea>
   function build(){
     tbody.innerHTML = ''; rows = [];
     document.getElementById('in').value.split('\n').map(function(l){return l.trim()}).filter(Boolean).forEach(function(line){
-      var parts = line.split(','), name = parts[0].trim(), role = (parts[1]||'').trim().toLowerCase();
+      var name = line.trim(), role = '';
       var url = base + '?to=' + encodeURIComponent(name).replace(/%20/g,'+') + (role==='ninong'||role==='ninang' ? '&role='+role : '');
       var label = (role==='ninong'?'Ninong ':role==='ninang'?'Ninang ':'') + name;
       rows.push(label + ': ' + url);

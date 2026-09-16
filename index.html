@@ -588,11 +588,11 @@
     <div class="gifts">
       <div class="gift">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 6.6 16 4l-1.5 2.2a3 3 0 0 1-5 0L8 4 3.6 6.6 5 10l2-.6V20h10V9.4l2 .6z"/></svg></div>
-        <div><h4>Clothes</h4><p>Shirts, shorts and onesies. Size <span class="tba">TBA</span>. He is growing fast, so a size up is safe.</p></div>
+        <div><h4>Clothes</h4><p>Shirts, shorts and onesies in <b>2-year-old size (24 months / 2T)</b>. He is growing fast, so bigger is better.</p></div>
       </div>
       <div class="gift">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M3 11h18M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
-        <div><h4>Diapers &amp; wipes</h4><p>Always useful. Size <span class="tba">TBA</span>.</p></div>
+        <div><h4>Diapers &amp; wipes</h4><p>Always useful. <b>EQ Pants, Medium</b>.</p></div>
       </div>
       <div class="gift">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7z"/></svg></div>
@@ -644,25 +644,13 @@
 
 <script>
 (function(){
-  /* ---------- personalisation from URL ----------
-     ?to=Lola+Ning            -> "Dear Lola Ning"
-     ?to=Mark&role=ninong     -> "Dear Ninong Mark" + godparent copy
-     ?to=Ana&role=ninang      -> "Dear Ninang Ana"
-  ------------------------------------------------ */
+  /* ---------- personalisation from URL: ?to=Lola+Ning -> "Dear Lola Ning" ---------- */
   var q = new URLSearchParams(location.search);
   var to = (q.get('to') || '').trim().slice(0, 60);
-  var role = (q.get('role') || '').trim().toLowerCase();
   var nameEl = document.getElementById('guestName');
-  var copyEl = document.getElementById('guestCopy');
   if (to) {
-    var prefix = role === 'ninong' ? 'Ninong ' : role === 'ninang' ? 'Ninang ' : '';
-    nameEl.textContent = prefix + to;
-    if (role === 'ninong' || role === 'ninang') {
-      copyEl.innerHTML = '<b>Byron and Hanna</b> would be honoured to have you stand as ' +
-        (role === 'ninong' ? 'Ninong' : 'Ninang') + ' to their son <b>Henry Thompson Ong</b> ' +
-        'as he is welcomed into the Christian faith and celebrates his first birthday.';
-    }
-    document.title = 'Invitation for ' + prefix + to + ' · Henry’s First Lap';
+    nameEl.textContent = to;
+    document.title = 'Invitation for ' + to + ' · Henry’s First Lap';
   }
 
   /* ---------- countdown ---------- */
