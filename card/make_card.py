@@ -104,7 +104,10 @@ def row(label, lines, y):
     return yy + 12
 y = row("CEREMONY", ["11:00 AM  ·  Cathedral Church", "San Nicolas Street, Surigao City"], y)
 y = row("RECEPTION", ["12:00 NN  ·  Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
-y = row("DRESS CODE", ["To be announced"], y)
+if VARIANT in ('ninong', 'ninang', 'godparents'):
+    y = row("DRESS CODE", ["White", "Guests in red, yellow or blue"], y)
+else:
+    y = row("DRESS CODE", ["Red, yellow or blue", "Ninongs and Ninangs in white"], y)
 
 # ---- closing line (variant)
 if NAME:
