@@ -103,7 +103,7 @@ def row(label, lines, y):
         d.text((cx0 + 210, yy), ln, font=f3, fill=(90, 90, 90)); yy += 27
     return yy + 12
 y = row("CEREMONY", ["11:00 AM  ·  Cathedral Church", "San Nicolas Street, Surigao City"], y)
-y = row("RECEPTION", ["12:00 NN  ·  Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
+y = row("RECEPTION", ["1:00 PM  ·  Jollibee Highway Branch", "Outside Villa Corito, Surigao City"], y)
 # dress code: both lines bold, same on every card
 fl = nunito(17, 900); fb = nunito(24, 800)
 d.text((cx0 + 34, y + 6), "DRESS CODE", font=fl, fill=RED)
